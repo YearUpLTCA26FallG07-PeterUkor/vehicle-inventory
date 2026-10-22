@@ -159,7 +159,7 @@ public class Main {
             return;
         }
         System.out.println("\n=== Enter The New Vehicle information ===");
-        System.out.print("Vehicle ID: ");
+        System.out.print("Vehicle ID (Number 0 - 999999): ");
         long vehicleID = input.nextLong();
         // consume \n
         input.nextLine();
@@ -170,7 +170,7 @@ public class Main {
         System.out.print("Color: ");
         String color = input.nextLine();
 
-        System.out.print("Odometer Reading: ");
+        System.out.print("Odometer Reading (Number 0 - 1000000): ");
         int odometerReading = input.nextInt();
         // consume \n
         input.nextLine();

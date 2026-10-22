@@ -35,6 +35,7 @@ public class Main {
                     """);
             System.out.print("Enter your command: ");
             choice = input.nextInt();
+            // consume \n
             input.nextLine();
             if (choice == 6 || choice < 1 || choice > 6) {
                 System.out.println("=== Ending Program ===");

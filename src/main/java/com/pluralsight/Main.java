@@ -25,7 +25,7 @@ public class Main {
         int choice;
         while (true) {
             System.out.println("""
-                    What do you want to do?
+                    \nWhat do you want to do?
                     1 - List all vehicles
                     2 - Search by make/model
                     3 - Search by price range
@@ -70,7 +70,6 @@ public class Main {
         for (int i = 0; i < countOfVehicles; i++) {
             System.out.println(i + ". " + vehicleArray[i].getMakeModel());
         }
-        System.out.println();
     }
 
     public static void searchByMakeAndModel(Vehicle[] vehicleArray, int countOfVehicles){

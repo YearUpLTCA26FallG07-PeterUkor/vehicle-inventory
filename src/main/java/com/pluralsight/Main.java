@@ -75,8 +75,6 @@ public class Main {
     public static void searchByMakeAndModel(Vehicle[] vehicleArray, int countOfVehicles){
         System.out.print("\nEnter the Make/Model: ");
         String makeAndModel = input.nextLine().trim();
-        String vehicleMake;
-        String vehicleModel;
         int found = 0;
 
         // use a for loop to find the vehicle make and model
@@ -84,21 +82,9 @@ public class Main {
         // java may throw an error if you use length because some space may not be initialized yet
         for (int i = 0; i < countOfVehicles; i++) {
             // in case use enters only make or model
-            // prepare vehicle make and model for checking
-            // split returns a String array with index 0: make and index 1 model so we call it twice
-            vehicleMake = vehicleArray[i].getMakeModel().split(" ")[0].trim();
-            vehicleModel = vehicleArray[i].getMakeModel().split(" ")[1].trim();
-
+            // check if the make and model contains the input
             // if we find a match print the vehicle information
-            if (makeAndModel.equalsIgnoreCase(vehicleArray[i].getMakeModel())) {
-                found = 1;
-                displayVehicleInformation(vehicleArray[i]);
-
-            } else if (makeAndModel.equalsIgnoreCase(vehicleMake)) {
-                found = 1;
-                displayVehicleInformation(vehicleArray[i]);
-
-            } else if (makeAndModel.equalsIgnoreCase(vehicleModel)) {
+            if (vehicleArray[i].getMakeModel().toLowerCase().contains(makeAndModel.toLowerCase())) {
                 found = 1;
                 displayVehicleInformation(vehicleArray[i]);
             }

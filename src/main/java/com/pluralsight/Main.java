@@ -46,7 +46,7 @@ public class Main {
                 case 2 -> searchByMakeAndModel(vehicleAray, countOfVehicles);
                 case 3 -> searchByPriceRange(vehicleAray, countOfVehicles);
                 case 4 -> searchByColor(vehicleAray, countOfVehicles);
-                case 5 -> addAVehicle(vehicleAray, countOfVehicles);
+                case 5 -> countOfVehicles = addAVehicle(vehicleAray, countOfVehicles);
             }
         }
     }
@@ -152,12 +152,13 @@ public class Main {
 
     }
 
-    public static void addAVehicle(Vehicle[] vehicleArray, int countOfVehicles) {
+    public static int addAVehicle(Vehicle[] vehicleArray, int countOfVehicles) {
         // first check whether vehicleArray is full
         if (countOfVehicles == 20) {
             System.out.println("\n===Dealership has reached Max Vehicle Capacity===");
-            return;
+            return countOfVehicles;
         }
+
         System.out.println("\n=== Enter The New Vehicle information ===");
         System.out.print("Vehicle ID (Number 0 - 999999): ");
         long vehicleID = input.nextLong();
@@ -181,11 +182,12 @@ public class Main {
         input.nextLine();
 
         Vehicle newVehicle = new Vehicle(vehicleID, makeModel, color, odometerReading, price);
-        vehicleArray[countOfVehicles + 1] = newVehicle;
-        countOfVehicles++;
+        vehicleArray[countOfVehicles] = newVehicle;
 
         System.out.println("\n=== Vehicle Added Successfully ===");
         displayVehicleInformation(newVehicle);
+
+        return countOfVehicles + 1;
 
     }
 
